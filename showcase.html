@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Showcase card</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;0,800;1,800;1,900&display=swap">
+<style>
+/* Карточка-витрина для портфолио: ноутбук + телефон с оболочкой, описание проекта.
+   Открыть: showcase.html?niche=sportcars-soda   (размер карточки 1920×1200, для скриншота — клавиша P прячет подсказку) */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#111}
+.card{width:1920px;height:1200px;position:relative;overflow:hidden;font-family:Rubik,system-ui,sans-serif;color:#111;
+  background:#F6F4EF}
+.bgshape{position:absolute}
+.b1{right:-160px;top:-200px;width:900px;height:900px;border-radius:50%;background:linear-gradient(135deg,#7A2CF5,#FF3D8B)}
+.b2{left:0;bottom:0;width:1060px;height:230px;background:linear-gradient(90deg,#B8F02A,#F2C230);border-top-right-radius:115px}
+.b3{right:330px;top:0;bottom:0;width:30px;background:#0E0E10}
+.dots{left:96px;top:700px;width:150px;height:90px;background:radial-gradient(circle,#0E0E10 30%,transparent 34%) 0 0/30px 30px}
+.spark{left:640px;top:96px;width:60px;height:60px;background:#FF3B1F;clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%)}
+.text{position:absolute;left:96px;top:100px;width:620px;z-index:3}
+.eyebrow{font-weight:800;font-size:16px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-bottom:22px}
+h1{font-weight:900;font-style:italic;font-size:104px;line-height:.9;letter-spacing:-3px;margin-bottom:28px}
+h1 em{font-style:italic;color:#7A2CF5}
+.lead{font-size:22px;line-height:1.45;font-weight:500;opacity:.8;margin-bottom:34px;max-width:560px}
+.did{display:flex;flex-wrap:wrap;gap:10px;max-width:600px}
+.did span{background:#0E0E10;color:#fff;border-radius:99px;padding:11px 20px;font-weight:700;font-size:16px}
+.did span.l{background:#fff;color:#111;border:2px solid #111}
+.foot{position:absolute;left:96px;bottom:70px;z-index:3;display:flex;gap:40px;align-items:center;font-weight:800;font-size:18px}
+.foot small{font-weight:500;opacity:.7;font-size:16px}
+/* laptop */
+.laptop{position:absolute;left:760px;top:250px;z-index:2}
+.lid{width:1000px;height:640px;background:#0b0b0c;border-radius:26px 26px 6px 6px;padding:22px 22px 30px;box-shadow:0 40px 80px rgba(0,0,0,.35)}
+.screen{width:956px;height:588px;overflow:hidden;border-radius:6px;background:#fff;position:relative}
+.screen iframe{width:1280px;height:788px;border:0;transform:scale(.746875);transform-origin:0 0}
+.base{width:1140px;height:34px;margin-left:-70px;background:linear-gradient(#d9d9dd,#a9a9b0);border-radius:0 0 30px 30px;position:relative}
+.base::before{content:"";position:absolute;left:50%;top:0;width:180px;height:10px;transform:translateX(-50%);background:#9a9aa2;border-radius:0 0 12px 12px}
+/* phone */
+.phone{position:absolute;left:1560px;top:430px;z-index:4;width:300px;height:650px;border-radius:46px;background:#0b0b0c;padding:11px;box-shadow:0 0 0 2px #3a3a3e,0 40px 80px rgba(0,0,0,.45)}
+.phone .in{width:278px;height:628px;border-radius:36px;overflow:hidden;background:#fff}
+.phone iframe{width:390px;height:881px;border:0;transform:scale(.7128);transform-origin:0 0}
+.hint{position:fixed;left:10px;bottom:10px;color:#aaa;font:12px system-ui}
+body.clean .hint{display:none}
+</style></head>
+<body>
+<div class="card">
+  <i class="bgshape b1"></i><i class="bgshape b3"></i><i class="bgshape b2"></i><i class="bgshape dots"></i><i class="bgshape spark"></i>
+  <div class="text">
+    <div class="eyebrow" id="eb">Instagram · Brand identity · Concept</div>
+    <h1 id="ttl">Apex<br><em>Anatomy</em></h1>
+    <p class="lead" id="lead">A media brand that breaks down sports cars and superbikes. Profile packaging from scratch: logo, avatar, highlights, a 9-post grid where every post has its own colour pair and graphic elements, reels covers and captions in English.</p>
+    <div class="did" id="did">
+      <span>Vector logo &amp; brand book</span><span>Profile packaging</span><span>9 post designs</span><span>Highlights</span><span class="l">Reels covers</span><span class="l">Copywriting EN</span><span class="l">AI visuals</span>
+    </div>
+  </div>
+  <div class="foot"><span id="by">VizuCraft</span><small id="tools">AI images · code-drawn layouts · Rubik</small></div>
+  <div class="laptop"><div class="lid"><div class="screen"><iframe id="fL"></iframe></div></div><div class="base"></div></div>
+  <div class="phone"><div class="in"><iframe id="fP"></iframe></div></div>
+</div>
+<div class="hint">P — hide this hint · change texts in this file or via ?niche=</div>
+<script>
+const n=new URLSearchParams(location.search).get('niche')||'sportcars-soda';
+document.getElementById('fL').src=`index.html?niche=${n}&view=desktop&present=1&frame=0&concept=0&scroll=330`;
+document.getElementById('fP').src=`index.html?niche=${n}&present=1&frame=0&concept=0`;
+addEventListener('keydown',e=>{if(e.key==='p'||e.key==='P')document.body.classList.toggle('clean')});
+</script>
+</body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8">
+<title>Showcase — два стилі</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;0,800;1,800;1,900&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap">
+<style>
+/* Карточка-витрина: два варианта оформления одного профиля рядом.
+   Открыть: showcase-duo.html?a=clothes-calm&b=clothes-loud  · окно 1920×1200 · P — спрятать подсказку · скриншот. */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#111}
+.card{width:1920px;height:1200px;position:relative;overflow:hidden;font-family:Rubik,system-ui,sans-serif;color:#111;background:#F3EFE9}
+.half{position:absolute;top:0;bottom:0}
+.h1{left:0;width:54%;background:#E7DFD3}
+.h2{right:0;width:46%;background:linear-gradient(150deg,#B8F02A,#FFD21C)}
+.stripe{position:absolute;right:120px;top:0;bottom:0;width:28px;background:#7A2CF5}
+.spark{position:absolute;width:70px;height:70px;background:#FF2E93;clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%)}
+.dots{position:absolute;width:150px;height:90px;background:radial-gradient(circle,#111 30%,transparent 34%) 0 0/30px 30px}
+.text{position:absolute;left:90px;top:96px;width:520px;z-index:3}
+.eyebrow{font-weight:800;font-size:15px;letter-spacing:.2em;text-transform:uppercase;opacity:.55;margin-bottom:22px}
+h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:96px;line-height:.95;letter-spacing:-1px;margin-bottom:26px;color:#2A2520}
+h1 em{font-style:italic;color:#6B4A2F}
+.lead{font-size:20px;line-height:1.5;font-weight:500;opacity:.8;margin-bottom:30px}
+.did{display:flex;flex-wrap:wrap;gap:10px}
+.did span{background:#2A2520;color:#fff;border-radius:99px;padding:10px 18px;font-weight:700;font-size:15px}
+.did span.l{background:transparent;color:#2A2520;border:2px solid #2A2520}
+.foot{position:absolute;left:90px;bottom:64px;z-index:3;font-weight:800;font-size:18px;color:#2A2520}
+.foot small{font-weight:500;opacity:.7;font-size:15px;margin-left:24px}
+.ph{position:absolute;top:110px;z-index:4;width:410px;height:888px;border-radius:58px;background:#0b0b0c;padding:13px;box-shadow:0 0 0 2px #3a3a3e,0 40px 90px rgba(0,0,0,.35)}
+.ph .in{width:384px;height:862px;border-radius:46px;overflow:hidden;background:#fff}
+.ph iframe{width:390px;height:876px;border:0;transform:scale(.9846);transform-origin:0 0}
+.pa{left:660px}.pb{left:1240px}
+.lbl{position:absolute;top:1020px;z-index:4;width:410px;text-align:center;font-weight:900;font-style:italic;font-size:34px;letter-spacing:-.5px}
+.la{left:660px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:40px;color:#2A2520}
+.lb{left:1240px;color:#111}
+.lbl small{display:block;font-family:Rubik,sans-serif;font-style:normal;font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-top:4px}
+.hint{position:fixed;left:10px;bottom:10px;color:#aaa;font:12px system-ui}
+body.clean .hint{display:none}
+</style></head>
+<body>
+<div class="card">
+  <i class="half h1"></i><i class="half h2"></i><i class="stripe"></i>
+  <i class="spark" style="left:1760px;top:120px"></i><i class="dots" style="left:1700px;top:1010px"></i>
+  <div class="text">
+    <div class="eyebrow">Instagram · Концепт оформлення</div>
+    <h1>Один бренд,<br><em>два голоси</em></h1>
+    <p class="lead">Магазин одягу «Лад» (вигаданий бренд). Два варіанти оформлення профілю на вибір: спокійний «Тиша» для натуральних тканин і яскравий «Голосно» для streetwear-дропів. Шапка, хайлайти, сітка з 9 постів, каруселі, обкладинки Reels і підписи українською.</p>
+    <div class="did"><span>Упаковка профілю</span><span>2 стилі</span><span>9 постів × 2</span><span>Хайлайти</span><span class="l">Каруселі</span><span class="l">Reels</span><span class="l">Тексти UA</span><span class="l">AI-фото</span></div>
+  </div>
+  <div class="foot">VizuCraft<small>AI-фото · макети кодом · Cormorant + Rubik</small></div>
+  <div class="ph pa"><div class="in"><iframe id="fA"></iframe></div></div>
+  <div class="ph pb"><div class="in"><iframe id="fB"></iframe></div></div>
+  <div class="lbl la">Тиша<small>спокійний</small></div>
+  <div class="lbl lb">ГОЛОСНО<small>яскравий</small></div>
+</div>
+<div class="hint">P — спрятать подсказку · ?a=ниша1&b=ниша2 · тексты меняются в этом файле</div>
+<script>
+const q=new URLSearchParams(location.search), a=q.get('a')||'clothes-calm', b=q.get('b')||'clothes-loud', sc=q.get('scroll')||'0';
+document.getElementById('fA').src=`index.html?niche=${a}&present=1&frame=0&concept=0&scroll=${sc}`;
+document.getElementById('fB').src=`index.html?niche=${b}&present=1&frame=0&concept=0&scroll=${sc}`;
+addEventListener('keydown',e=>{if(e.key==='p'||e.key==='P')document.body.classList.toggle('clean')});
+</script>
+</body></html>

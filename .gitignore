@@ -1,0 +1,13 @@
+# Публикуется только витрина. Служебное не выкладываем.
+*.bak
+*.bak_*
+_old/
+_to_delete/
+**/prompts.md
+**/.insta-studio.json
+niches/_template/
+niches/_vtest/
+КАК ПОЛЬЗОВАТЬСЯ.md
+*.log
+*.bat
+.publish/
